@@ -37,9 +37,28 @@ public class Tennis
             {
                 return $"{ScoreNames[_player1Score]}-All";
             }
+            return "Deuce";    
+        }
+
+        // Advantage or Win situation
+        if (_player1Score >= 4 || _player2Score >= 4)
+        {
+            int scoreDifference = _player1Score - _player2Score;
+            if (scoreDifference == 1)
+            {
+                return $"Advantage {_player1}";
+            }
+            else if (scoreDifference == -1)
+            {
+                return $"Advantage {_player2}";
+            }
+            else if (scoreDifference >= 2)
+            {
+                return $"Win for {_player1}";
+            }
             else
             {
-                return "Deuce";
+                return $"Win for {_player2}";
             }
         }
 

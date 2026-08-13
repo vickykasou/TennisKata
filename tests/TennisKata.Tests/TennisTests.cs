@@ -83,5 +83,40 @@ public class TennisTests
         // Assert
         Assert.Equal("Deuce", tennis.GetScore());
     }
+
+    // Phase 3: PLayer 1 has Advantage
+    [Fact]
+    public void GetScore_WhenPlayer1HasAdvantage_ReturnsAdvantagePlayer1()
+    {
+        // Arrange
+        var tennis = new Tennis("Player 1", "Player 2");
+
+        // Act
+        for (int i = 0; i < 3; i++)
+        {
+            tennis.PointWon("Player 1");
+            tennis.PointWon("Player 2");
+        }
+        tennis.PointWon("Player 1");
+
+        // Assert
+        Assert.Equal("Advantage Player 1", tennis.GetScore());
+    }
     
+    // Phase 3: Player 1 Wins
+    [Fact]
+    public void GetScore_WhenPlayer1Wins_ReturnsWinForPlayer1()
+    {
+        // Arrange
+        var tennis = new Tennis("Player 1", "Player 2");
+
+        // Act
+        for (int i = 0; i < 4; i++)
+        {
+            tennis.PointWon("Player 1");
+        }
+
+        // Assert
+        Assert.Equal("Win for Player 1", tennis.GetScore());
+    }
 }
