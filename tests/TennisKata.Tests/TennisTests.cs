@@ -16,7 +16,7 @@ public class TennisTests
         var score = tennis.GetScore();
 
         // Assert
-        Assert.Equal("Love all", score);
+        Assert.Equal("Love-All", score);
     }
 
     // Phase 1: Player 1 scores
@@ -32,5 +32,35 @@ public class TennisTests
 
         // Assert
         Assert.Equal("Fifteen-Love", score);
+    }
+
+    // Phase 1: Both players score
+    [Fact]
+    public void GetScore_WhenBothPlayersScore1_ReturnsFifteenAll()
+    {
+        // Arrange
+        var tennis = new Tennis("Player 1", "Player 2");
+
+        // Act
+        tennis.PointWon("Player 1");
+        tennis.PointWon("Player 2");
+
+        // Assert
+        Assert.Equal("Fifteen-All", tennis.GetScore());
+    }
+
+    [Fact]
+    public void GetScore_WhenPlayer1ScoresTwiceAndPlayer2ScoresOnce_ReturnsThirtyFifteen()
+    {
+        // Arrange
+        var tennis = new Tennis("Player 1", "Player 2");
+
+        // Act
+        tennis.PointWon("Player 1");
+        tennis.PointWon("Player 1");
+        tennis.PointWon("Player 2");
+
+        // Assert
+        Assert.Equal("Thirty-Fifteen", tennis.GetScore());
     }
 }

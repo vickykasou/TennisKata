@@ -9,6 +9,8 @@ public class Tennis
     private int _player1Score = 0;
     private int _player2Score = 0;
 
+    private static readonly string[] ScoreNames = { "Love", "Fifteen", "Thirty", "Forty" };
+
     public Tennis(string player1, string player2)
     {
         _player1 = player1;
@@ -28,10 +30,20 @@ public class Tennis
     }
     public string GetScore()
     {
-        if (_player1Score == 1 && _player2Score == 0)
+        // Scores are equal <3 points
+        if (_player1Score == _player2Score)
         {
-            return "Fifteen-Love";
+            if (_player1Score < 3)
+            {
+                return $"{ScoreNames[_player1Score]}-All";
+            }
+            else
+            {
+                return "Deuce";
+            }
         }
-        return "Love all";
+
+        // Different scores <4 points
+        return $"{ScoreNames[_player1Score]}-{ScoreNames[_player2Score]}";
     }
 }
