@@ -49,6 +49,7 @@ public class TennisTests
         Assert.Equal("Fifteen-All", tennis.GetScore());
     }
 
+    // Phase 1: Player 1 scores twice, Player 2 scores once
     [Fact]
     public void GetScore_WhenPlayer1ScoresTwiceAndPlayer2ScoresOnce_ReturnsThirtyFifteen()
     {
@@ -63,4 +64,24 @@ public class TennisTests
         // Assert
         Assert.Equal("Thirty-Fifteen", tennis.GetScore());
     }
+
+    // Phase 2: Both players score three times
+    [Fact]
+    public void GetScore_WhenBothPlayersScoreThreeTimes_ReturnsDeuce()
+    {
+        // Arrange
+        var tennis = new Tennis("Player 1", "Player 2");
+
+        // Act
+        tennis.PointWon("Player 1");
+        tennis.PointWon("Player 1");
+        tennis.PointWon("Player 1");
+        tennis.PointWon("Player 2");
+        tennis.PointWon("Player 2");
+        tennis.PointWon("Player 2");
+
+        // Assert
+        Assert.Equal("Deuce", tennis.GetScore());
+    }
+    
 }
