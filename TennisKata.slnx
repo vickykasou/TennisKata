@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/TennisKata.Core/TennisKata.Core.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/TennisKata.Tests/TennisKata.Tests.csproj" />
+  </Folder>
+</Solution>
