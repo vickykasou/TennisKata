@@ -65,4 +65,30 @@ public class Tennis
         // Different scores <4 points
         return $"{ScoreNames[_player1Score]}-{ScoreNames[_player2Score]}";
     }
+
+    private bool TieScore() => _player1Score == _player2Score;
+
+    private string GetTieScore()
+    {
+        if (_player1Score < 3)
+        {
+            return $"{ScoreNames[_player1Score]}-All";
+        }
+        return "Deuce";
+    }
+
+    private bool EndGame() => _player1Score >= 4 || _player2Score >= 4;
+
+    private string GetEndGameScore()
+    {
+        int scoreDifference = _player1Score - _player2Score;
+        
+        return scoreDifference switch
+        {
+            1 => $"Advantage {_player1}",
+            -1 => $"Advantage {_player2}",
+            >= 2 => $"Win for {_player1}",
+            _ => $"Win for {_player2}"
+        };
+    }
 }
