@@ -119,4 +119,29 @@ public class TennisTests
         // Assert
         Assert.Equal("Win for Player 1", tennis.GetScore());
     }
+
+    [Theory]
+    [InlineData(4, 4, "Deuce")]
+    [InlineData(5, 4, "Advantage Player 1")]
+    [InlineData(4, 5, "Advantage Player 2")]
+    [InlineData(6, 4, "Win for Player 1")]
+    [InlineData(4, 6, "Win for Player 2")]
+    public void GetScore_WhenGameIsOver_ReturnsCorrectScore(int player1Points, int player2Points, string expectedScore)
+    {
+        // Arrange
+        var tennis = new Tennis("Player 1", "Player 2");
+
+        // Act
+        for (int i = 0; i < player1Points; i++)
+        {
+            tennis.PointWon("Player 1");
+        }
+        for (int i = 0; i < player2Points; i++)
+        {
+            tennis.PointWon("Player 2");
+        }
+
+        // Assert
+        Assert.Equal(expectedScore, tennis.GetScore());
+    }
 }
