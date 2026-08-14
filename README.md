@@ -6,7 +6,7 @@ A domain-driven C# implementation of the classic Tennis Kata built using Test-Dr
 
 ## Architecture & Project Structure
 
-```
+```text
 TennisKata/
 ├── TennisKata.slnx          # XML Solution file
 ├── README.md                # Project documentation & instructions
@@ -27,7 +27,9 @@ TennisKata/
 ## Running the Tests
 
 To run the complete test suite:
+```bash
 dotnet test
+```
 
 All unit and parametrized theory tests will execute, validating:
 1. Standard point progressions (Love, 15, 30, 40)
@@ -40,7 +42,9 @@ All unit and parametrized theory tests will execute, validating:
 ## Running the Web API & Swagger UI
 
 To start the local ASP.NET Core Web API server:
+```bash
 dotnet run --project src/TennisKata.Api
+```
 
 Once started, open your browser and navigate to:
 http://localhost:5124/swagger
