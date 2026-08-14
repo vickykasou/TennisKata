@@ -28,7 +28,7 @@ TennisKata/
 
 To clone the repository:
 ```bash
-git clone [https://github.com/vickykasou/TennisKata.git](https://github.com/vickykasou/TennisKata.git)
+git clone https://github.com/vickykasou/TennisKata.git
 ```
 To build the solution:
 ```bash
