@@ -24,6 +24,19 @@ TennisKata/
 
 ---
 
+## Getting Started
+
+To clone the repository:
+```bash
+git clone [https://github.com/vickykasou/TennisKata.git](https://github.com/vickykasou/TennisKata.git)
+```
+To build the solution:
+```bash
+dotnet build
+```
+
+---
+
 ## Running the Tests
 
 To run the complete test suite:
